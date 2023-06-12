@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block title %}
+<title>Oline növbə - Rabitabank</title>
+{% endblock %}
+
+<div id="flexolan">
+    <section>
+    <div class="salam_10">
+    <h1 class="onlinenovbe_1">Onlayn növbə</h1>
+    <div>
+        <div class="salam_11">
+                    <div class="salam_2">
+                        <div class="kartolan_1 text_1_2">
+                            
+            <form action="" method="POST" onsubmit="sifaris()">
+                            <div class="salam_11">
+                                <h2 class="onlinenovbe_2">Onlayn növbəyə yazıl</h2>
+                                <p style="margin-bottom: 4rem; font-size: 17px; font-weight:300">
+                                    Gözləmədən rahat bankçılıq xidmətlərindən faydalanmaq üçün  
+                                    <br> onlayn növbə götürün.
+                                </p>        
+                {{ form.csrf_token }}
+                <div class="salam_2">
+                    <div class="onlinenovbe_3">
+                    <label>Filial seçin</label>
+                    {{ form.filial(class_='onlinenovbe_6') }}
+                    </div>
+                </div>
+                
+                <div class="salam_2">
+                    <div class="onlinenovbe_3">
+                    <label>Xidmət növü seçin</label>
+                        {{ form.xidmet_novu(class_='onlinenovbe_6') }}
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;" class="salam_2">
+                    <div class="onlinenovbe_3">
+                    <label>Tarixi seçin</label>
+                    {{ form.tarix(class_='onlinenovbe_6') }}
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;" class="salam_2">
+                    <div class="onlinenovbe_3">
+                    <label>Vaxtı seçin</label>
+                        {{ form.vaxt(class_='onlinenovbe_6') }}
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <div class="onlinenovbe_3 onlinenovbe_4">
+                    <label>Mobil nömrəniz</label>
+                    <div class="onlinenovbe_5">
+                        {{ form.mobil_nomre(class_='onlinenovbe_6', id='mobil_nomre') }}
+                    </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem;">
+                    <div>
+                    <button type="submit" class="btn">Növbə götür</button>
+                    </div>
+                </div>
+            </form>
+                </div>
+                        </div>
+                    </div>
+                    <div class="salam_2">
+                        <div class="kartolan_1">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d514.6120110166603!2d49.95282616742524!3d40.39728981948861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030636f4950e04d%3A0x489c628d0762ac3d!2zUmFiaXTJmWJhbmsgxo9obcmZZGxp!5e0!3m2!1str!2saz!4v1685221277255!5m2!1str!2saz" style="border:0; border-radius: 20px; width: 580px; height: 615px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var input = document.getElementById('mobil_nomre');
+    input.addEventListener('input', function() {
+      formatPhoneNumber(this);
+    });
+  });
+
+function formatPhoneNumber(input) {
+  var phoneNumber = input.value;
+
+  var cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
+
+  var formattedPhoneNumber = cleanedPhoneNumber.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, '$1-$2-$3-$4');
+
+  input.value = formattedPhoneNumber;
+}
+
+        function sifaris() {
+                    var mesaj = "Onlayn növbə üçün göndərilən sorğunuz qəbul edildi.\n\n";
+                    
+                    var id = "ID" + Math.floor(Math.random() * 10000000);
+                    mesaj += "Sifarişinizin İD-si: " + id;
+                    
+                    alert(mesaj);
+                }
+ </script>
+
+{% endblock %}

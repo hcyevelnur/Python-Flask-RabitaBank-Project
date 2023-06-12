@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="az">
+<meta http-equiv="content-type" content="UTF-8" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/svg-symbols.js') }}"></script>
+{% block title %}
+
+{% endblock %}
+<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='img/favicon-96x96.png') }}">
+</head>
+<body style="font-family: sans-serif; font-weight: 100 !important;">
+    <div class="svg-placeholder" style="border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;"></div>
+    <script nonce="6d295ef63835f65667885ba634f2932b362ea133705e0b50c5b65ec13f4bd9f4">
+        document.querySelector('.svg-placeholder').innerHTML = SVG_SPRITE;
+    </script>
+
+
+<header class="yuxariiolan">
+    <input type="checkbox" id="menyunuac" class="d-none">
+    <input type="checkbox" id="order-popup" class="d-none">
+    <label for="menyunuac" class="yuxari_baglanis"></label>
+    <div class="navbar_olan">
+        <div class="salam_10">
+            <ul class="navbarqisa d-none flex_olan">
+            <li>
+                <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12">
+                <use xlink:href="#svg-bank"></use>
+                </svg>
+                Ümumi məlumat
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="15">
+                <use xlink:href="#svg-location"></use>
+                </svg>
+                Filial və bankomatlar
+                </a>
+            </li>
+            </ul>
+                <a href="#" class="yuxari_nav_1" aria-label="mode">
+                <svg class="dark" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                    <use xlink:href="#svg-dark"></use>
+                </svg>
+                </a>
+
+            <div class="diller">
+                <div class="dilleri_secmey">
+                    <img width="18" height="13" src="{{ url_for('static', filename='/img/flag-az.svg') }}" alt="">
+                    AZ
+                </div>
+                    <ul class="dillerolan_list">
+                <li>
+                    <a href="#">
+                    <img width="18" height="13" src="{{ url_for('static', filename='/img/flag-en.svg') }}" alt="en">
+                    EN
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <img width="18" height="13" src="{{ url_for('static', filename='/img/flag-ru.svg') }}" alt="ru">
+                    RU
+                    </a>
+                </li>
+                    </ul>
+            </div>
+                </div>
+            </div>
+
+<div class="header_1_3 d-none"></div>
+
+<div class="header_1_4">
+    <div class="basliq_1">
+        <div class="salam_10">
+            <span class="basliq_logo logo_1" aria-label="logo">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='/img/rabitebank.svg') }}" width="191" height="36" alt="#">
+                  </a>                  
+            </span>
+            <ul class="header_1_1 flex_olan d-none">
+            <li>
+                <a href="#" class="active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="19">
+                    <use xlink:href="#svg-user"></use>
+                    </svg>
+                    Fərdi
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                    <use xlink:href="#svg-bag"></use>
+                    </svg>
+                    Biznes
+                </a>
+            </li>
+            </ul>
+                <a href="#" class="telefonlar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                    <use xlink:href="#svg-phone"></use>
+                    </svg>
+                    <span class="d-none display_block">133</span>
+                </a>
+                <a target="_blank" href="/interbank" class="btn buton_1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18">
+                    <use xlink:href="#svg-enter"></use>
+                </svg>
+                <span>
+                    İnternet Bankçılıq
+                </span>
+                </a>
+        </div>
+    </div>
+    <div class="kreditler_1">
+        <div class="salam_10">
+            <ul class="menyu_1">
+                <li>
+                    <a href="#">
+                        <img src="#" alt="#" class="display_block__1" width="19" height="18" />
+                        Kreditlər
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{{ url_for('static', filename='/img/menu-card-1.webp') }}" alt="#" class="d-none display_block__1_bagli" width="24" height="15" />
+                        Kartlar
+                    </a>
+                </li>
+                <li class="display_block__1">
+                    <label></label>
+                </li>
+                <li>
+                    <a href="/emanetler">
+                        Əmanətlər
+                    </a>
+                </li>
+                <li>
+                    <label for="menyunuac" class="header_1_2 headericonu">
+                        <span>
+                            ...
+                        </span>
+                    </label>
+                </li>
+            </ul>
+    
+            <form action="" class="axtaris_1" aria-label="search">
+                <button type="button" class="axtaris_2 headericonu" aria-label="search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                        <use xlink:href="#svg-search"></use>
+                    </svg>
+                </button>
+                <input name="" type="text" class="axtaris_3" placeholder="Axtarış et" aria-label="search">
+            </form>
+    
+            <a href="/onlinenovbe" class="btn btn_2 buton_ag_1 buton_qara_1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                    <use xlink:href="#svg-calendar"></use>
+                </svg>
+                Onlayn növbə
+            </a>
+        </div>
+    </div>    
+
+<nav class="navbar_1" id="menyu_1_1">
+    <label for="menyunuac" class="display_block__1"></label>
+        <div class="menyu_1_2">
+        <ul class="menu_1_olan">
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Kreditlər
+                </a>
+                    <a href="#" class="display_block__1 active" aria-label="open-sub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6">
+                        <use xlink:href="#svg-arrow-bottom"></use>
+                        </svg>
+                    </a>
+            <ul style="display: block">
+                <li>
+                    <a href="#">Nağd pul krediti</a></li>
+                <li>
+                    <a href="#">İpoteka krediti</a></li>
+                <li>
+                    <a href="#">Lombard krediti</a></li>
+                <li>
+                    <a href="#">&quot;MİDA&quot; xətti ilə güzəştli ipoteka</a></li>
+                <li>
+                    <a href="#">Bütün kreditlər</a></li>
+                <li>
+                    <a href="#">Nağd Pul krediti üzrə Kampaniya</a></li>
+            </ul>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Kartlar
+                </a>
+                    <a href="#" class="display_block__1 active" aria-label="open-sub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6">
+                        <use xlink:href="#svg-arrow-bottom"></use>
+                        </svg>
+                    </a>
+            <ul style="display: block">
+                    <li>
+                        <a href="#">Kartmane Debet</a></li>
+                    <li>
+                        <a href="#">Kartmane Kredit</a></li>
+                    <li>
+                        <a href="#">Kartmane Premium</a></li>
+            </ul>
+            </li>
+            <li>
+                    <a class="header_nav_1-1" href="#">
+                Pul köçürmələri
+                    </a>
+                    <a href="#" class="display_block__1 " aria-label="open-sub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6">
+                        <use xlink:href="#svg-arrow-bottom"></use>
+                        </svg>
+                    </a>
+            <ul>
+                    <li>
+                        <a href="#">Western Union</a></li>
+                    <li>
+                        <a href="#">Zolotaya Korona</a></li>
+                    <li>
+                        <a href="#">Contact</a></li>
+                    <li>
+                        <a href="#">Barat</a></li>
+            </ul>
+            </li>
+            <li>
+            <a class="header_nav_1-1" href="#">
+            Onlayn xidmətlər
+            </a>
+                    <a href="#" class="display_block__1 " aria-label="open-sub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6">
+                            <use xlink:href="#svg-arrow-bottom"></use>
+                        </svg>
+                    </a>
+            <ul>
+                    <li>
+                        <a href="#">Kredit sifarişi</a></li>
+                    <li>
+                        <a href="#">Kartmane Debet sifarişi</a></li>
+                    <li>
+                        <a href="#">Kartmane Kredit sifarişi</a></li>
+                    <li>
+                        <a href="#">Onlayn ödənişlər</a></li>
+                    <li>
+                        <a href="#">Kredit ödənişi</a></li>
+                    <li>
+                        <a href="#">SMS məlumatlandırma</a></li>
+                    <li>
+                        <a href="#">Onlayn növbə</a></li>
+            </ul>
+            </li>
+            <li>
+                    <a class="header_nav_1-1" href="#">
+                    Digər xidmətlər
+                    </a>
+                    <a href="#" class="display_block__1 " aria-label="open-sub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="6">
+                            <use xlink:href="#svg-arrow-bottom"></use>
+                        </svg>
+                    </a>
+            <ul>
+                    <li>
+                        <a href="#">Sürətli pul köçürmələri</a></li>
+                    <li>
+                        <a href="#">Hesablaşma-kassa əməliyyatları</a></li>
+                    <li>
+                        <a href="#">Saxlanc seyfləri</a></li>
+                    <li>
+                        <a href="#">Sığorta xidmətləri</a></li>
+                    <li>
+                        <a href="#">Xidmət şəbəkəsi</a></li>
+            </ul>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="/kampaniyalar">
+                Kampaniyalar
+                </a>
+            </li>
+            <li class="d-none display_block__2">
+                <a class="header_nav_1-1" href="#">
+                Təhlükəsizlik
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Tərəfdaşlar
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="/xeberler">
+                Xəbərlər
+                </a>
+            </li>
+            </ul>
+            <ul class="header_basqalari">
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Keşbek
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Rabita Mobile
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Apple Pay
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Google Pay™
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Lüğət
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Bloq
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Rabita Bot
+                </a>
+            </li>
+            <li>
+                <a class="header_nav_1-1" href="#">
+                Kredit kalkulyatoru
+                </a>
+            </li>
+        </ul>
+        </div>
+</nav>
+</div>
+</header>
+{% block content %}
+
+    
+{% endblock %}
+<footer class="footer">
+    <div class="salam_10">
+        <div class="footermenu">
+            <div class="salam_11">
+                <div style="flex: 0 0 auto; width: 16.66667%;" class="">
+                    <p class="footer_yazi">Fərdi müştərilər</p>
+                <ul>
+                    <li>
+                        <a href="#">Kartmane</a></li>
+                    <li>
+                        <a href="#">Kreditlər</a></li>
+                    <li>
+                        <a href="/emanetler">Əmanətlər</a></li>
+                    <li>
+                        <a href="#">Onlayn xidmətlər</a></li>
+                    <li>
+                        <a href="/kampaniyalar">Kampaniyalar</a></li>
+                </ul>
+                </div>
+                <div style="flex: 0 0 auto; width: 16.66667%;" class="">
+                    <p class="footer_yazi">Biznes müştərilər</p>
+                <ul>
+                    <li>
+                        <a href="/emanetler">Əmanətlər</a></li>
+                    <li>
+                        <a href="#">Kreditlər</a></li>
+                    <li>
+                        <a href="#">Plastik kartlar</a></li>
+                    <li>
+                        <a href="#">Bank xidmətləri</a></li>
+                    <li>
+                        <a href="/kampaniyalar">Kampaniyalar</a></li>
+                </ul>
+                </div>
+                <div style="flex: 0 0 auto; width: 16.66667%;" class="">
+                    <p class="footer_yazi">Bank haqqında</p>
+                <ul>
+                    <li>
+                        <a href="#">Ümumi məlumat</a></li>
+                    <li>
+                        <a href="#">Strateji baxış və missiya</a></li>
+                    <li>
+                        <a href="#">Rəhbərlik</a></li>
+                    <li>
+                        <a href="#">Təşkilati struktur</a></li>
+                    <li>
+                        <a href="#">Banklararası biznes</a></li>
+                    <li>
+                        <a href="#">Risklərin idarə edilməsi</a></li>
+                </ul>
+                </div>
+                <div style="flex: 0 0 auto; width: 16.66667%;" class="">
+                    <p class="footer_yazi">Digər</p>
+                <ul>
+                    <li>
+                        <a href="#">Yükləmələr və dəstək</a></li>
+                    <li>
+                        <a href="#">Tender elanları</a></li>
+                    <li>
+                        <a href="#">Hesabatlar</a></li>
+                    <li>
+                        <a href="#">Şikayət və təkliflər</a></li>
+                    <li>
+                        <a href="#">F.A.Q</a></li>
+                </ul>
+                </div>
+                <div style="flex: 0 0 auto; width: 16.66667%;" class="">
+                    <p class="footer_yazi">İnsan resursları</p>
+                <ul>
+                    <li>
+                        <a href="#">Ümumi məlumat</a></li>
+                    <li>
+                        <a href="#">Vakansiyalar</a></li>
+                </ul>
+                </div>
+                <div style="flex: 0 0 auto; width: 16.66667%;" class="">
+                    <p class="footer_yazi">Baş ofis</p>
+                <ul>
+                    <li><a href="#">Azərbaycan, Bakı şəh., AZ 1010, 28 May küç. 33</a></li>
+                    <li>Tel.: <a href="#">(994 12) 598 44 88</a>
+                    </li>
+                    <li>Fax.: <a href="#">(994 12) 598 44 88</a>
+                    </li>
+                    <li>Teleks: <a href="#">142453 RSKBAI</a>
+                    </li>
+                    <li><a href="mailto:133@rabitabank.com">133@rabitabank.com</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="elaqeolan">
+        <ul class="iphonezad d-none flex_olan">
+            <li>
+                <a target="_blank" href="https://apps.apple.com/app/rabitabank-mobile/id1457972986" aria-label="app store">
+                <img src="{{ url_for('static', filename='img/apple_1.svg') }}" width="157" height="48" alt="App store">
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.rabitabank" aria-label="google play">
+                <img src="{{ url_for('static', filename='img/google.svg') }}" width="157" height="48" alt="Google play">
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://appgallery.huawei.com/app/C103228365" aria-label="huawei app gallery">
+                <img src="{{ url_for('static', filename='img/appgallery.svg') }}" width="157" height="48" alt="AppGallery">
+                </a>
+            </li>
+        </ul>
+        <ul class="linkler">
+        </ul>
+
+    <div class="socialsebekeler">
+        <span>Bizi izləyin</span>
+        <ul>
+            <li>
+                <a target="_blank" href="https://www.facebook.com/rabitabank" aria-label="fb">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16">
+                    <use xlink:href="#svg-fb"></use>
+                    </svg>
+                </a>
+            </li>
+        <li>
+                <a target="_blank" href="https://twitter.com/rabitabank" aria-label="twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14">
+                    <use xlink:href="#svg-twitter"></use>
+                    </svg>
+                </a>
+        </li>
+        <li>
+                <a target="_blank" href="https://www.instagram.com/rabitabank/" aria-label="insta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                    <use xlink:href="#svg-insta"></use>
+                    </svg>
+                </a>
+        </li>
+        <li>
+                <a target="_blank" href="https://www.youtube.com/c/Rabitabank_official" aria-label="youtube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12">
+                    <use xlink:href="#svg-youtube"></use>
+                    </svg>
+                </a>
+        </li>
+        <li>
+                <a target="_blank" href="https://www.linkedin.com/company/rabitabank-ojsc" aria-label="linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14">
+                    <use xlink:href="#svg-linkedin"></use>
+                    </svg>
+                </a>
+        </li>
+        </ul>
+    </div>
+    </div>
+    <div style="
+            padding-bottom: 30px; font-weight: 100 !important;" class="footer_asagisi">
+        <p>
+            Rabitəbank ASC Azərbaycan Mərkəzi Bankın 136 saylı lisenziyası <br>
+            əsasında fəaliyyət göstərir. © Rabitəbank 2023
+        </p>
+            <ul>
+                <li>
+                    <a aria-label="site link" target="_blank" href="https://infobank.az/">
+                        <img src="{{ url_for('static', filename='img/infobank.png') }}" width="115" height="26" alt="#">
+                    </a>
+                </li>
+            <li>
+                <a aria-label="site link" target="_blank" href="https://bizimpullar.az/">
+                    <img src="{{ url_for('static', filename='img/maliyye-portali.png') }}" width="75" height="40" alt="#">
+                </a>
+            </li>
+            </ul>
+    </div>
+</div>
+</footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

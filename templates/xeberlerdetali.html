@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block title %}
+<title>Xəbərlər detalı - Rabitabank</title>
+{% endblock %}
+
+<div id="flexolan">
+    <section>
+      <div class="salam_10">
+        <div class="yariyabol">
+          <div class="xeberler_1_10">
+            <div class="banner_1">
+              <img src="{{ xeberler1.image2 }}" width="1012" height="220" />
+            </div>
+            <span class="xeberler_1_11">{{ xeberler1.date }}</span>
+            <h1 class="h2">{{ xeberler1.description }}</h1>
+            <div class="xeberler_1_12">
+              <p style="text-align: justify;">
+                {{ xeberler1.comment }}</p>
+              <p style="
+              text-align:justify">
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                {% if xeberler1.image3 %}
+                <img src="{{ xeberler1.image3 }}" alt="Image 3" style="height:300px; width:400px">
+                {% endif %}
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                {% if xeberler1.image4 %}
+                <img src="{{ xeberler1.image4 }}" alt="Image 4" style="height:300px; width:400px">
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

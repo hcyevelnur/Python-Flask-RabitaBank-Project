@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block title %}
+<title>Kampaniyalar - Rabitabank</title>
+{% endblock %}
+
+<div id="flexolan">    
+    <section>
+      <div class="salam_10">
+        <h1 class="xeberleryazi_1">Kampaniyalar</h1>
+        
+        <div class="xeberler_1">
+          <a href="#" class="xeberleryazi_2 active" data-kategori="hamisi" onclick="filtrele('hamisi')">Bütün kampaniyalar</a>
+          <a href="#" class="xeberleryazi_2" data-kategori="kredit" onclick="filtrele('kredit')">Kredit</a>
+          <a href="#" class="xeberleryazi_2" data-kategori="kart" onclick="filtrele('kart')">Kart</a>
+          <a href="#" class="xeberleryazi_2" data-kategori="emanetler" onclick="filtrele('emanetler')">Əmanətlər</a>
+        </div>
+
+        <div>
+          {% for kampaniya in kompaniyalar %}
+            <div class="salam_2 {{ kampaniya.kategori }}">
+                <a href="/kampaniyalar/detal{{ kampaniya.id }}" class="kartolan_1 text_1_2">
+                    <div class="text_1_3">
+                        <span class="xeberleryazi_4">{{ kampaniya.date }}</span>
+                        <span style="margin-top: 2rem; font-size: 16px !important; width: 200px !important; font-weight: 500 !important;" class="text_1_4">
+                            {{ kampaniya.name }}
+                        </span>
+                        <br>
+                    </div>
+                    
+                    <div class="text_1_image">
+                        <img src="{{ kampaniya.image }}" alt="" width="" height="196" />
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>     
+          
+      </div>
+    </section>
+  </div>
+
+<script src="{{ url_for('static', filename='js/kampaniyalar.js') }}"></script>
+{% endblock %}

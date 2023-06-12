@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block title %}
+<title>Rabitabank</title>
+{% endblock %}
+<style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .kalkulyator_1_10 {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #888;
+    }
+
+    input[type="number"],
+    input[type="range"] {
+      width: 100%;
+      padding: 18px;
+      border: 1px solid #ddd;
+      border-radius: 13px;
+    }
+
+    .slider-value {
+      display: inline-block;
+      width: 60px;
+      text-align: right;
+    }
+
+    #ayliqodeniss {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 10px;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      background-color: transparent;
+      border: 0px solid;
+      margin-top: -18px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
+      border: 5px solid black;
+    }
+
+    input[type="range"]:hover {
+      opacity: 1;
+    }
+  </style>
+
+<div id="flexolan">
+<section class="karusel_1_1 bannerkarusel_1">
+    <div class="salam_10">
+        <div class="bannerkarusel_2" data-flickity='{ "cellAlign": "left", "contain": true,"wrapAround":true,"autoPlay":true,"pauseAutoPlayOnHover":false }'>
+        <a href="#" class="bannerkarusel_3">
+            <div class="bannerkarusel_4">
+                <h2>{{ slider.name}}</h2>
+                    <div class="bannerkarusel_5">
+                    <p>{{ slider.description}}</p>
+                    </div>
+            <ul class="bannerkarusel_6">
+                <li>
+                    <span>
+                        Məbləğ</span>{{ slider.meblegi}}</li>
+                <li>
+                    <span>
+                        Faiz dərəcəsi</span>{{ slider.faizderecesi}}</li>
+                <li>
+                    <span>
+                        Müddət</span>{{ slider.muddeti}}</li>
+            </ul>
+                    <span class="btn">
+                        Sifariş et</span>
+            </div>
+                <div class="bannerkarusel_7">
+                    <img src="{{ slider.image}}"  alt="Nağd pul krediti" width="440" />
+                </div>
+        </a>
+        <a href="#" class="bannerkarusel_3">
+                <div class="bannerkarusel_4">
+                    <h2>{{ slider_1.name}}</h2>
+                        <ul class="bannerkarusel_6">
+                            <li>
+                                <span>
+                                    Nağdlaşdırma</span>{{ slider_1.nagdlasdirma}}</li>
+                            <li>
+                                <span>
+                                    Güzəşt müddəti</span>{{ slider_1.guzes}}</li>
+                            <li>
+                                <span>
+                                    Kart limiti</span>{{ slider_1.kartlimit}}</li>
+                        </ul>
+                    <span class="btn">
+                        Sifariş et</span>
+                </div>
+                <div class="bannerkarusel_7">
+                    <img src="{{ slider_1.image}}"  alt="#" width="440" />
+                </div>
+        </a>
+        </div>
+    </div>
+</section>
+<section>
+<div class="salam_10">
+<h2 class="suretlikecidler_1">Sürətli keçidlər</h2>
+    <div class="salam_11">
+        <div class="salam_4">
+            <a href="#" class="suretlikecidler_2 ">
+                <span>Nağd pul krediti</span>
+                <img src="{{ url_for('static', filename='/img/1.png') }}" alt="#" width="140" />
+            </a>
+        </div>
+        <div class="salam_4">
+            <a href="/emanetler" class="suretlikecidler_2 ">
+                <span>Əmanətlər</span>
+                <img src="{{ url_for('static', filename='/img/2.png') }}"  alt="#" width="140" />
+            </a>
+        </div>
+        <div class="salam_4">
+            <a href="#" class="suretlikecidler_2 ">
+                <span>Pul Köçürmələri</span>
+                <img src="{{ url_for('static', filename='img/3.png') }}" alt="#" width="140" />
+            </a>
+        </div>
+        <div class="salam_4">
+            <a href="#" class="suretlikecidler_2 ">
+                <span>Keşbek</span>
+                <img src="{{ url_for('static', filename='img/4.png') }}"  alt="#" width="140" />
+            </a>
+        </div>
+        <div class="salam_4">
+            <a href="/kampaniyalar" class="suretlikecidler_2 ">
+                <span>Kampaniyalar</span>
+                <img src="{{ url_for('static', filename='img/5.png') }}"  alt="#" width="140" />
+            </a>
+        </div>
+        <div class="salam_4">
+            <a href="#" class="suretlikecidler_2 suretlikecidler_3">
+                <span>Kartmane Premium</span>
+                <img src="{{ url_for('static', filename='img/6.png') }}" alt="#" width="140" />
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+
+<section style="margin-top: 7rem;">
+
+<div class="salam_10 yariyabol">
+    <div class="salam_11">
+        <div class="salam_5">
+            <div class="rabitebot_1">
+                <h2 class="rabitebot_2">Rabita Mobile</h2>
+                <p>
+                Hər yerdə maliyyə xidmətlərimizdən faydalanmaq üçün Rabita Mobile istifadə edin! </p>
+                <div class="rabitebot_3">
+                    <img src="{{ url_for('static', filename='/img/qr_mobile5e1f.jpg') }}" width="164" height="164" loading="lazy" alt="#">
+                    Telefonunuzun kamerası ilə QR codu scan edin
+                </div>
+            </div>
+        </div>
+        <div class="salam_6">
+            <di>
+              <img src="{{ url_for('static', filename='/img/online.png') }}" loading="lazy" width="579" alt="#">
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<section style="margin-top: 8rem;" class="kalkulyator">
+    <div class="salam_10">
+      <div class="salam_11">
+        <div class="salam_2">
+          <div class="kalkulyator_1_1 kalkulyator_1_2">
+            <div class="kalkulyator_1_3">
+              <h2 class="kalkulyator_1_4">Valyuta kursu</h2>
+              <div class="kalkulyator_1_5">
+                <input id="sec" type="checkbox">
+                <label for="sec" class="negd">Nağdsız</label>
+                <label for="sec" class="negd2">
+                  <span class="slider"></span>
+                </label>
+                <label for="sec" class="negd1">Nağd</label>
+              </div>
+            </div>
+            <div class="kalkulyator_1_66">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p style="margin-bottom: 10px; color: #888; font-size: 12px; font-weight: 100;">Valyuta</p>
+                      <strong>GBP</strong>
+                    </td>
+                    <td>
+                      <p style="margin-bottom: 10px; color: #888; font-size: 12px;">Alış</p>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">2.05</div>
+                    </td>
+                    <td>
+                      <p style="margin-bottom: 10px; color: #888; font-size: 12px;">Satış</p>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">{{melumat['ValCurs']['ValType'][1]['Valute'][16]['Value']}}</div>
+                    </td>
+                    <td>
+                      <p style="margin-bottom: 10px; color: #888; font-size: 12px;">Mərkəzi Bank
+                      </p>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">2.1004</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>EUR</strong>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">1.81</div>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">{{melumat['ValCurs']['ValType'][1]['Valute'][1]['Value']}}</div>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">1.8199</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>USD</strong>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">1.69</div>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">{{melumat['ValCurs']['ValType'][1]['Valute'][0]['Value']}}</div>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">1.7</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>RUB</strong>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">0.0207</div>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">{{melumat['ValCurs']['ValType'][1]['Valute'][34]['Value']}}</div>
+                    </td>
+                    <td>
+                      <div class="kalkulyator_1_8 kalkulyator_1_7">0.0212</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="kalkulyator_1_9">
+              <p>Kurs {{melumat['ValCurs']['@Date']}} tarixinə qədər aktivdir.</p>
+              <a href="#" class="btn">Konvertasiya et</a>
+            </div>
+          </div>
+        </div>
+  
+<div class="salam_2">
+          <div class="kalkulyator_1_1">
+            <div class="kalkulyator_1_3">
+              <h2 class="kalkulyator_1_4">Kredit kalkulyatoru</h2>
+            </div>
+            <div class="kalkulyator_1_66">
+              <div>
+                <div class="kalkulyator_1_10">
+                    <label style="margin-top: 1.5rem;" for="kreditmeblegi">Kredit məbləği</label>
+                    <div>
+                        <input id="kreditmeblegi" type="number" min="2000" max="40000" value="2000">
+                        <input id="kreditmeblegislider" type="range" min="2000" max="40000" value="2000">
+                    </div>
+                  </div>
+                  <div style="display: flex;">
+                  <div class="kalkulyator_1_10">
+                    <label for="kreditmuddeti">Kredit müddəti</label>
+                    <div>
+                        <input id="kreditmuddeti" type="number" min="6" max="36" value="6">
+                        <input id="kreditmuddetislider" type="range" min="6" max="36" value="6">
+                    </div>
+                  </div>
+                  <div style="margin-left: 20px;" class="kalkulyator_1_10">
+                    <label for="faizderecesi">Faiz dərəcəsi</label>
+                    <div>
+                        <input id="faizderecesi" type="number" min="6" max="36" value="6">
+                        <input id="faizderecesislider" type="range" min="6" max="36" value="6">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="kalkulyator_1_9">
+                <p>Aylıq ödəniş: <span id="ayliqodeniss"></span></p>
+                <button href="#" class="btn button_22" id="calculate-button">Sifariş et</button>
+              </div>
+            </div>                   
+      </div>
+</div>
+  </div>
+  </section>
+  
+
+<div class="salam_10">
+    <a href="#" class="bot_1" style="background: linear-gradient(232.01deg, #8AC659 26.51%, #60A02A 71.93%)">
+        <img src="{{ url_for('static', filename='img/bot-new.png') }}" alt="#" width="200"/>
+        <div class="bot_2">
+            <h2 class="bot_3">Rabita Bot</h2>
+            <p>RabitəBot ilə bank xidmətlərindən 24/7 rahat və sürətli faydalana bilərsiniz!</p>
+        </div>
+    <div class="bot_4" style="background-image: url(../static/img/bot-text-new2.webp)"></div>
+    </a>
+</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/calc.js') }}"></script>
+
+{% endblock %}
+
